@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth</title>
+    <link rel="shortcut icon" href="/assets/about.png" type="image/x-icon" />
 
     <!-- tailwind and daisyui cdn -->
     <link
@@ -64,9 +65,20 @@
                 <li class="text-black"><a>Plant a Tree</a></li>
               </ul>
             </div>
-            <a class="btn btn-ghost text-xl text-white hover:text-[#15803d]"
-              >Green Earth</a
-            >
+            <div class="flex items-center">
+              <a
+                class="btn btn-ghost text-xl text-white hover:text-[#15803d] px-1"
+                ><img
+                  class="w-8 h-8 bg-green-300 rounded-full p-1"
+                  src="./assets/about.png"
+                  alt=""
+              /></a>
+
+              <a
+                class="hidden sm:block btn btn-ghost text-xl text-white hover:text-[#15803d] px-1 pt-1"
+                >Green Earth</a
+              >
+            </div>
           </div>
           <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
@@ -88,7 +100,9 @@
           src="./assets/hero-leaf1.png"
           alt=""
         />
-        <div class="p-4 flex flex-col items-center col-span-6 text-center gap-2">
+        <div
+          class="p-4 flex flex-col items-center col-span-6 text-center gap-2"
+        >
           <h1 class="text-[24px] md:text-[48px] font-bold text-center">
             Plant a Tree, Grow a Future
           </h1>
@@ -133,8 +147,8 @@
                 </li>
               </ul>
             </div>
-            <div class="md:grid grid-cols-3 gap-3 col-span-7">
-              <div class="card bg-base-100 w-full h-[370px] shadow-sm">
+            <div class="grid md:grid-cols-3 gap-5 md:gap-3 col-span-7">
+              <div class="card bg-base-100 w-full h-[370px] shadow-md">
                 <figure>
                   <img src="./assets/mango-1.jpg" alt="Mango" />
                 </figure>
@@ -150,18 +164,18 @@
                     >
                       Fruit tree
                     </p>
-                    <p class="font-bold flex-grow-0">৳500</p>
+                    <p class="font-bold flex-grow-0">৳<span>500</span></p>
                   </div>
                   <div class="card-actions">
                     <button
-                      class="btn text-white bg-[#15803d] w-full rounded-full"
+                      class="btn text-white bg-[#15803d] hover:bg-green-900 w-full rounded-full"
                     >
                       Add to Cart
                     </button>
                   </div>
                 </div>
               </div>
-              <div class="card bg-base-100 w-full h-[370px] shadow-sm">
+              <div class="card bg-base-100 w-full h-[370px] shadow-md">
                 <figure>
                   <img src="./assets/mango-1.jpg" alt="Mango" />
                 </figure>
@@ -177,18 +191,18 @@
                     >
                       Fruit tree
                     </p>
-                    <p class="font-bold flex-grow-0">৳500</p>
+                    <p class="font-bold flex-grow-0">৳<span>500</span></p>
                   </div>
                   <div class="card-actions">
                     <button
-                      class="btn text-white bg-[#15803d] w-full rounded-full"
+                      class="btn text-white bg-[#15803d] hover:bg-green-900 w-full rounded-full"
                     >
                       Add to Cart
                     </button>
                   </div>
                 </div>
               </div>
-              <div class="card bg-base-100 w-full h-[370px] shadow-sm">
+              <div class="card bg-base-100 w-full h-[370px] shadow-md">
                 <figure>
                   <img src="./assets/mango-1.jpg" alt="Mango" />
                 </figure>
@@ -204,11 +218,11 @@
                     >
                       Fruit tree
                     </p>
-                    <p class="font-bold flex-grow-0">৳500</p>
+                    <p class="font-bold flex-grow-0">৳<span>500</span></p>
                   </div>
                   <div class="card-actions">
                     <button
-                      class="btn text-white bg-[#15803d] w-full rounded-full"
+                      class="btn text-white bg-[#15803d] hover:bg-green-900 w-full rounded-full"
                     >
                       Add to Cart
                     </button>
@@ -264,10 +278,12 @@
         <!-- About the Campaign section -->
         <section class="max-w-7xl mx-auto">
           <div class="flex justify-center">
-            <h1 class="text-[32px] font-bold mt-8">About the Campaign</h1>
+            <h1 class="text-[24px] md:text-[32px] font-bold mt-8">
+              About the Campaign
+            </h1>
           </div>
           <div
-            class="flex flex-col items-center justify-center mt-10 md:flex-row md:gap-6"
+            class="flex flex-col items-center justify-center mt-10 md:flex-row md:gap-6 pb-5 md:py-20"
           >
             <img
               class="w-[300px] h-[300px] md:w-[530px] md:h-[530px] bg-green-500/15 rounded-3xl"
@@ -292,22 +308,22 @@
         </section>
       </div>
       <!-- Our Impact section -->
-      <section class="bg-green-500/30 mt-20">
+      <section class="bg-green-500/30">
         <div class="flex justify-center">
-          <h1 class="text-[32px] font-bold mt-8">Our Impact</h1>
+          <h1 class="text-[24px] md:text-[32px] font-bold mt-8">Our Impact</h1>
         </div>
         <div class="grid md:grid-cols-3 gap-5 md:gap-20 p-5 md:p-20">
           <div class="bg-white flex flex-col text-center py-5 rounded-2xl">
-            <h1 class="font-bold text-3xl text-green-700">500k+</h1>
+            <h1 class="font-bold text-3xl text-green-700">500K+</h1>
             <p class="text-gray-600">Trees Planted</p>
           </div>
           <div class="bg-white flex flex-col text-center py-5 rounded-2xl">
-            <h1 class="font-bold text-3xl text-green-700">500k+</h1>
-            <p class="text-gray-600">Trees Planted</p>
+            <h1 class="font-bold text-3xl text-green-700">120+</h1>
+            <p class="text-gray-600">Communities Involved</p>
           </div>
           <div class="bg-white flex flex-col text-center py-5 rounded-2xl">
-            <h1 class="font-bold text-3xl text-green-700">500k+</h1>
-            <p class="text-gray-600">Trees Planted</p>
+            <h1 class="font-bold text-3xl text-green-700">30+</h1>
+            <p class="text-gray-600">Countries Reached</p>
           </div>
         </div>
       </section>
@@ -316,7 +332,9 @@
       <!-- Plant a Tree Today section -->
       <section class="bg-green-700 p-5 md:p-10">
         <div class="flex justify-center">
-          <h1 class="text-[32px] font-bold text-white">Plant a Tree Today</h1>
+          <h1 class="text-[24px] md:text-[32px] font-bold text-white">
+            Plant a Tree Today
+          </h1>
         </div>
         <div
           class="bg-green-500 max-w-[450px] mx-auto p-5 flex flex-col items-center gap-3 rounded-2xl mt-8 shadow-black/50 shadow-lg"
@@ -346,8 +364,10 @@
           </button>
         </div>
       </section>
-      <section class=" flex justify-center bg-green-900 text-white p-5">
-        <p>© 2025 Green Earth. All Rights Reserved.</p>
+      <section class="flex justify-center bg-green-900 text-white p-5">
+        <p class="text-[12px] md:text-lg">
+          © 2025 Green Earth. All Rights Reserved.
+        </p>
       </section>
     </footer>
     <!-- script -->
