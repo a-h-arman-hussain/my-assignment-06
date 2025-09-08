@@ -4,7 +4,7 @@ const addToCard = document.getElementById("addToCard");
 const totalPrice = document.getElementById("totalPrice");
 
 let total = 0;
-const cartItems = new Map();
+const cartItems = new Map(); // Track items in cart
 
 const loadAllTrees = () => {
   fetch("https://openapi.programming-hero.com/api/plants")
@@ -22,15 +22,10 @@ const loadCategories = () => {
 
 const displayCategories = (categories) => {
   plantsCategories.innerHTML = "";
-
   categories.forEach((cat) => {
     const li = document.createElement("li");
     li.id = cat.id;
-    li.innerHTML = `
-      <a class="btn md:justify-start hover:text-white hover:bg-green-900 w-full" href="">
-        ${cat.category_name}
-      </a>
-    `;
+    li.innerHTML = `<a class="btn justify-start hover:text-white hover:bg-green-900 w-full" href="">${cat.category_name}</a>`;
     plantsCategories.appendChild(li);
   });
 };
@@ -45,7 +40,6 @@ plantsCategories.addEventListener("click", (e) => {
   plantsCategories.querySelectorAll("a").forEach((link) => {
     link.classList.remove("bg-green-600", "text-white");
   });
-
   clickedLink.classList.add("bg-green-600", "text-white");
 });
 
@@ -78,9 +72,7 @@ const displayFruitCategories = (cards) => {
             <span class="font-bold">৳<span>${card.price}</span></span>
           </div>
           <div class="card-actions">
-            <button class="add-to-cart btn text-white bg-[#15803d] hover:bg-green-900 w-full rounded-full">
-              Add to Cart
-            </button>
+            <button class="add-to-cart btn text-white bg-[#15803d] hover:bg-green-900 w-full rounded-full">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -107,18 +99,20 @@ const displayFruitCategories = (cards) => {
 
     fruitsCard.appendChild(newCard);
 
+    // Add to Cart
     const addToCartBtn = newCard.querySelector(".add-to-cart");
     addToCartBtn.addEventListener("click", () => {
-      if (!cartItems.has(card.name)) {
+      if (cartItems.has(card.name)) {
+        // Increase quantity
+        const item = cartItems.get(card.name);
+        item.quantity += 1;
+        item.element.querySelector("span:last-child").innerText = item.quantity;
+        total += parseFloat(card.price);
+        totalPrice.innerText = total;
+      } else {
+        // First time add
         const newList = document.createElement("div");
-        newList.classList.add(
-          "flex",
-          "justify-between",
-          "items-center",
-          "py-2",
-          "border-b",
-          "border-gray-200"
-        );
+        newList.classList.add("flex", "justify-between", "items-center", "py-2", "border-b", "border-gray-200");
         newList.innerHTML = `
           <div>
             <h1 class="font-bold">${card.name}</h1>
@@ -128,25 +122,22 @@ const displayFruitCategories = (cards) => {
         `;
         addToCard.appendChild(newList);
 
+        cartItems.set(card.name, { element: newList, price: parseFloat(card.price), quantity: 1 });
         total += parseFloat(card.price);
         totalPrice.innerText = total;
 
-        cartItems.set(card.name, {
-          element: newList,
-          price: parseFloat(card.price),
-        });
-
         const removeBtn = newList.querySelector(".remove-btn");
         removeBtn.addEventListener("click", () => {
-          total -= parseFloat(card.price);
+          total -= cartItems.get(card.name).price * cartItems.get(card.name).quantity;
           totalPrice.innerText = total;
-          newList.remove();
           cartItems.delete(card.name);
+          newList.remove();
         });
       }
     });
   });
 
+  // Modal triggers
   const modalTriggers = document.querySelectorAll(".open-modal");
   modalTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
@@ -157,5 +148,6 @@ const displayFruitCategories = (cards) => {
   });
 };
 
+// Initialize
 loadCategories();
 loadAllTrees();
